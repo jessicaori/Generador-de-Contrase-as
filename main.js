@@ -1,7 +1,8 @@
+let campoContrasena = document.getElementById('contrasena');
+
 function generarContrasena(){
     let cantidadCaracteres = document.getElementById('cantidad').value;
     let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
-    let campoContrasena = document.getElementById('contrasena');
 
     if (cantidadCaracteres != "" ){
         contrasena = '';
@@ -16,4 +17,8 @@ function generarContrasena(){
 
 function posicionRandom(max){
     return Math.floor(Math.random()*(max+1));
+}
+
+function limpiarCampo(){
+    campoContrasena.value = '';
 }
