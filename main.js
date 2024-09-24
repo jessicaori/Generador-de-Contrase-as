@@ -1,15 +1,16 @@
 function generarContrasena(){
     let cantidadCaracteres = document.getElementById('cantidad').value;
-    let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+    let campoContrasena = document.getElementById('contrasena');
 
-    if (cantidadCaracteres != ""){
+    if (cantidadCaracteres != "" ){
         contrasena = '';
         for (let i = 0; i < cantidadCaracteres; i++) {
             contrasena = contrasena + caracteres[posicionRandom(caracteres.length - 1)];
         }
-        alert(contrasena);
+        campoContrasena.value = contrasena;
     } else {
-        alert ('Debes ingresar la cantidad de caracteres');
+        alert('Debe ingresar la cantidad de caracteres');
     }
 }
 
