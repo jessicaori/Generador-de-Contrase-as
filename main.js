@@ -29,7 +29,16 @@ function limpiarCampo(){
 // Verificando contrasena
 
 function validarContrasena(contrasena){
-    if(verificarMayusculas(contrasena) && verificarNumeros(contrasena)){
+    const letrasMayusculas = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    ];
+    const letrasMinusculas = [
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+    ];
+    const numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const simbolos = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'];
+    
+    if(verificar(letrasMayusculas, contrasena) && verificar(letrasMinusculas, contrasena) && verificar(numeros, contrasena) && verificar(simbolos, contrasena)){
         campoValidacion.innerHTML = 'La contraseña es fuerte';
         campoValidacion.style = "color: #27ec42";
     } else {
@@ -38,21 +47,8 @@ function validarContrasena(contrasena){
     }
 }
 
-function verificarMayusculas(texto){
-    const letrasMayusculas = [
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
-        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-    ];
-    for (let char of letrasMayusculas){
-        if(texto.includes(char)){
-            return true;
-        }
-    }
-}
-
-function verificarNumeros(texto){
-    const numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    for (let char of numeros){
+function verificar(array, texto){
+    for (let char of array){
         if(texto.includes(char)){
             return true;
         }
